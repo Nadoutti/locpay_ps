@@ -1,15 +1,15 @@
-package server
+package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"locpay/db"
-	"locpay/routes"
+	"locpay_api/pkg/utils"
+	"locpay_api/internal/delivery/routes"
 )
 
 func main() {
 
 	// Initialize Supabase
-	db.InitSupabase()
+	utils.InitSupabase()
 
 	r := gin.Default()
 

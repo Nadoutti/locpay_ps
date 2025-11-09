@@ -1,0 +1,39 @@
+# Binários e executáveis
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Diretórios de build
+/bin/
+/build/
+/dist/
+/cmd/**/bin/
+/cmd/**/build/
+
+# Arquivos temporários de editor/OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Cache do Go
+/go.work
+/go.work.sum
+*.cover
+*.prof
+*.pprof
+
+# Dependências baixadas (ficam no cache global, não precisa versionar)
+vendor/
+
+# Configs locais
+.env
+.env.local
+.env.*
+config/local.yaml
