@@ -55,6 +55,11 @@ https://go.dev/doc/install
 ```
 git clone https://github.com/Nadoutti/locpay_ps.git
 ```
+#### Instale as dependencias:
+
+```
+go mod tidy
+```
 
 #### Crie um arquivo .env e preencha com as chaves anexadas no email: 
 
