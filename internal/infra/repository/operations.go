@@ -122,6 +122,30 @@ func ConfirmOperation(id string) (string, schemas.OperationDTO, error) {
 		Status: op.Status,
 	}
 
+	var receiver schemas.GetReceiverDTO
+
+	// verificando se a operation existe
+	_, err = connect.From("receivers").
+		Select("*", "", false).
+		Eq("id", operation.Receiver_id).
+		Single().
+		ExecuteTo(&receiver)
+
+	
+	if err != nil {
+		return "",schemas.OperationDTO{}, err
+	}
+
+
+	updateReceiver := map[string]interface{}{
+		"balance": receiver.Balance + op.NetValue,
+	}
+
+	// atualizando receiver
+	_,_, err = connect.From("receivers").
+		Update(updateReceiver, "", "minimal").
+		Eq("id", operation.Receiver_id).
+		Execute()
 
 	return "operacao confirmada", satinizedOperation, nil
 	
